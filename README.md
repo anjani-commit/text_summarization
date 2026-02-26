@@ -1,2 +1,2 @@
-# text_summarization
+# text_summarization_project
 You can easily summarize a long paragraph using this text summarization tool....
