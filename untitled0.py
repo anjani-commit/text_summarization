@@ -1,8 +1,9 @@
+# Here I'm using nltk(Natural Language toolkit)to handle human language data and heapq to find top-ranked sentences----
 from flask import Flask, request, jsonify
 import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, sent_tokenize
-from heapq import nlargest
+from nltk.corpus import stopwords #ignores the common words like is,am,are---
+from nltk.tokenize import word_tokenize, sent_tokenize #break down the text into individual sentence s and words--
+from heapq import nlargest #picks the top 3 sentences---
 
 app = Flask(__name__)
 
