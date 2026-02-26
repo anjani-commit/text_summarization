@@ -11,7 +11,7 @@ app = Flask(__name__)
 def summarize_text(text, num_sentences=3):
     stopWords = set(stopwords.words("english"))
     words = word_tokenize(text)
-    freqTable = dict()
+    freqTable = dict() # determines which words are most important in the text------
     for word in words:
         word = word.lower()
         if word not in stopWords:
@@ -39,9 +39,9 @@ def summarize_text(text, num_sentences=3):
     return summary
 
 # --- Flask API Endpoint ---
-@app.route('/api/summarize', methods=['POST'])
+@app.route('/api/summarize', methods=['POST']) # accepts only POST requests--
 def api_summarize():
-    data = request.get_json()
+    data = request.get_json() # It allows an optional num sentences parameter---
     if not data or 'text' not in data:
         return jsonify({'error': 'No text provided'}), 400
 
@@ -50,7 +50,7 @@ def api_summarize():
     num_sentences = data.get('num_sentences', 3)
 
     summary = summarize_text(input_text, num_sentences)
-    return jsonify({'summary': summary})
+    return jsonify({'summary': summary}) # after processing the JSON sends the summary back in clean JSON format
 
 if __name__ == '__main__':
     # Run the app on host 0.0.0.0 for potential deployment/access from other devices
