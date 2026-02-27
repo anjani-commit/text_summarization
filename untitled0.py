@@ -1,14 +1,14 @@
-#I’m using NLTK (Natural Language Toolkit) here to work with human language data, and heapq to pull out the top sentences from a chunk of text.
+I’m using NLTK (Natural Language Toolkit) to mess around with text—breaking it up, skipping over boring words, and all that. I also bring in heapq because it’s great for grabbing the best sentences out of a big chunk of writing.
 
-from flask import Flask,request,jsonify #importing the liabraries
+from flask import Flask, request, jsonify
 import nltk
-from nltk.corpus import stopwords  # skips over common words like is, am, are
-from nltk.tokenize import word_tokenize, sent_tokenize  # splits the text into sentences and words
-from heapq import nlargest  # grabs the top 3 sentences
+from nltk.corpus import stopwords  # skips over words like “is” and “the”
+from nltk.tokenize import word_tokenize, sent_tokenize
+from heapq import nlargest  # picks out the top sentences
 
 app = Flask(__name__)
 
-# This is where the actual text summarizing happens
+# Here’s where the main action happens: turning a big block of text into a short summary.
 def summarize_text(text, num_sentences=3):
     stopWords = set(stopwords.words("english"))
     words = word_tokenize(text)
@@ -33,7 +33,7 @@ def summarize_text(text, num_sentences=3):
     summary = ' '.join(summary_sentences)
     return summary
 
-# API endpoint for summarizing
+# API endpoint that does the summarizing
 @app.route('/api/summarize', methods=['POST'])
 def api_summarize():
     data = request.get_json()
@@ -47,5 +47,5 @@ def api_summarize():
     return jsonify({'summary': summary})
 
 if __name__ == '__main__':
-    # Makes the app available on your network, not just your own computer
+    # This makes the app show up on your network, not just your PC
     app.run(host='0.0.0.0', port=5000)
