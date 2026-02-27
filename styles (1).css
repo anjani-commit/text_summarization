@@ -1,4 +1,4 @@
-/* General Page Styling */
+/* styling the page */
 body
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,7 +11,7 @@ body
     color: #333;
 }
 
-/* Container Card */
+/*here below is the Container Card */
 .container
 {
     background: white;
@@ -32,7 +32,7 @@ h2 {
     text-align: center;
 }
 
-/* Input Fields */
+/* giving inputs as per my(user) choice */
 textarea
 {
     width: 100%;
@@ -52,7 +52,7 @@ textarea:focus
     box-shadow: 0 0 8px rgba(118, 75, 162, 0.3);
 }
 
-/* The Button */
+/* assigning the button */
 button 
 {
     width: 100%;
