@@ -1,6 +1,6 @@
 #I’m using NLTK (Natural Language Toolkit) here to work with human language data, and heapq to pull out the top sentences from a chunk of text.
 
-from flask import Flask, request, jsonify
+from flask import Flask,request,jsonify #importing the liabraries
 import nltk
 from nltk.corpus import stopwords  # skips over common words like is, am, are
 from nltk.tokenize import word_tokenize, sent_tokenize  # splits the text into sentences and words
