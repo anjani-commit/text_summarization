@@ -7,7 +7,7 @@ from heapq import nlargest #picks the top 3 sentences---
 
 app = Flask(__name__)
 
-# --- Text Summarization Logic (Extractive) ---
+# --- Text Summarization Logic is here---
 def summarize_text(text, num_sentences=3):
     stopWords = set(stopwords.words("english"))
     words = word_tokenize(text)
